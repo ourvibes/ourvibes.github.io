@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>React+AntDesgin开发实践 | Ourvibes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="icon" href="/icon/earth.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap" class="animated fadeInDown">
+        <a href="/" id="logo">Ourvibes</a>
+      </h1>
+      <h2 id="slogan" class="animated fadeInUp">Forever youthful. Forever weeping.</h2>
+      
+    </div>
+    <div id="header-inner" class="inner animated fadeInDown">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta animated fadeInUp">
+    <a href="/2019/03/20/React/" class="article-date">
+  <time datetime="2019-03-20T10:34:48.000Z" itemprop="datePublished">2019-03-20 18:34:48</time>
+</a>
+    
+  </div>
+  <div class="animated  fadeIn article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React+AntDesgin开发实践
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><a href="https://reactjs.org/" target="_blank" rel="noopener">React</a>用于构建用户界面的JavaScript库。<a href="https://ant.design/docs/react/introduce-cn" target="_blank" rel="noopener">AntDesign</a>是一个开发和服务于企业级后台产品。</p>
+<ul>
+<li><a href="https://www.tslang.cn/docs/home.html" target="_blank" rel="noopener">typescript</a></li>
+<li><a href="https://www.npmjs.com/package/pubsub-js" target="_blank" rel="noopener">pubsub</a></li>
+<li><a href="https://www.redux.org.cn" target="_blank" rel="noopener">redux</a></li>
+<li><a href="https://redux-saga-in-chinese.js.org" target="_blank" rel="noopener">redux-saga</a></li>
+<li><a href="https://dvajs.com/guide" target="_blank" rel="noopener">dvajs</a></li>
+<li><a href="https://umijs.org/zh/guide" target="_blank" rel="noopener">umijs</a></li>
+</ul>
+<a id="more"></a>
+<p>Flux 是一种架构思想，专门解决软件的结构问题。（单向流动）</p>
+<ul>
+<li>View： 视图层</li>
+<li>Action（动作）：视图层发出的消息（比如mouseClick）</li>
+<li>Dispatcher（派发器）：用来接收Actions、执行回调函数</li>
+<li>Store（数据层）：用来存放应用的状态，一旦发生变动，就提醒Views要更新页面</li>
+</ul>
+<p><a href="https://reactjs.org/" target="_blank" rel="noopener">React</a>的生命周期如下：</p>
+<ul>
+<li>getDefaultProps()</li>
+<li>getInitialState()</li>
+<li>componentWillMount()</li>
+<li>render()</li>
+<li>componentDidMount()</li>
+<li>componentWillReceiveProps()</li>
+<li>shouldComponentUpdate()</li>
+<li>componentWillUpdate()</li>
+<li>render()</li>
+<li>componentDidUpdate()</li>
+<li>componentWillUnmount()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Timer</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; </span><br><span class="line">       seconds: <span class="number">0</span> </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.handleChange = <span class="keyword">this</span>.handleChange.bind(<span class="keyword">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  handleChange(e) &#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">value</span>: e.target.value &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">prevState</span> =&gt;</span> (&#123;</span><br><span class="line">      seconds: prevState.seconds + <span class="number">1</span></span><br><span class="line">    &#125;))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.interval = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.tick(),<span class="number">6000</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    clearInterval(<span class="keyword">this</span>.interval)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"container"</span>&gt;</span><br><span class="line">        &lt;span&gt;Seconds：&lt;<span class="regexp">/span&gt; </span></span><br><span class="line"><span class="regexp">        &lt;input </span></span><br><span class="line"><span class="regexp">           value="&#123;this.state.seconds&#125;" </span></span><br><span class="line"><span class="regexp">           onChange="&#123;this.handleChange&#125;"</span></span><br><span class="line"><span class="regexp">        /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;Timer /</span>&gt;, <span class="built_in">document</span>.getElmentById(<span class="string">"root"</span>))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/13/FrontEndStore/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          前端开发杂货铺
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/19/Dev/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue项目开发实践</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">标签云</h3>
+    <div class="widget tagcloud animated fadeIn">
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/About-Me/" style="font-size: 10px;">About Me</a> <a href="/tags/BaiduMap/" style="font-size: 10px;">BaiduMap</a> <a href="/tags/Book-Notes/" style="font-size: 10px;">Book Notes</a> <a href="/tags/Deploy-Project/" style="font-size: 10px;">Deploy Project</a> <a href="/tags/FrontEnd/" style="font-size: 10px;">FrontEnd</a> <a href="/tags/FrontEndStore/" style="font-size: 10px;">FrontEndStore</a> <a href="/tags/Girls/" style="font-size: 10px;">Girls</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Javascript-Basic/" style="font-size: 10px;">Javascript Basic</a> <a href="/tags/LeetCode-Easy/" style="font-size: 10px;">LeetCode Easy</a> <a href="/tags/Nginx-Static-Resource-Lib/" style="font-size: 10px;">Nginx Static Resource Lib</a> <a href="/tags/Poems/" style="font-size: 10px;">Poems</a> <a href="/tags/Python-Basic/" style="font-size: 10px;">Python Basic</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Recommendations/" style="font-size: 10px;">Recommendations</a> <a href="/tags/Spring-Boot-Starts/" style="font-size: 10px;">Spring Boot Starts</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Vue-dev/" style="font-size: 10px;">Vue dev</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">归档</h3>
+    <div class="widget animated fadeIn">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">最新文章</h3>
+    <div class="widget animated fadeIn">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/13/FrontEndStore/">前端开发杂货铺</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/20/React/">React+AntDesgin开发实践</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/19/Dev/">Vue项目开发实践</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/FrontDndDevelopment/">那些年，我们用过的jQuery</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/25/About-Hadoop/">关于Hadoop</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer" class="animated fadeIn">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chiang. All Rights Reserved. Powered by Hexo.
+      jiangqizhi@aliyun.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+
+  <script src="/js/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/baidu-analysis.js"></script>
+
+  </div>
+</body>
+</html>

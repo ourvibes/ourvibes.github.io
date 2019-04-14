@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Vue双向绑定原理解析 | Ourvibes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="icon" href="/icon/earth.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap" class="animated fadeInDown">
+        <a href="/" id="logo">Ourvibes</a>
+      </h1>
+      <h2 id="slogan" class="animated fadeInUp">Forever youthful. Forever weeping.</h2>
+      
+    </div>
+    <div id="header-inner" class="inner animated fadeInDown">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Vue-Data-Bind" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta animated fadeInUp">
+    <a href="/2017/10/23/Vue-Data-Bind/" class="article-date">
+  <time datetime="2017-10-23T11:48:00.000Z" itemprop="datePublished">2017-10-23 19:48:00</time>
+</a>
+    
+  </div>
+  <div class="animated  fadeIn article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue双向绑定原理解析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>Vue双向绑定原理解析。:-)</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//双向绑定的原理</span></span><br><span class="line"><span class="keyword">let</span> doc = <span class="built_in">document</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> log = <span class="built_in">console</span>.info.bind(<span class="built_in">console</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">node2Fragment</span>(<span class="params">node, vm</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = doc.createDocumentFragment()</span><br><span class="line">  <span class="keyword">let</span> child</span><br><span class="line">  <span class="keyword">while</span> (child = node.firstChild) &#123;</span><br><span class="line">  	complie(child, vm)</span><br><span class="line">  	temp.appendChild(child)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> temp</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">complie</span>(<span class="params">node, vm</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span>  reg = <span class="regexp">/\&#123;\&#123;(.*)\&#125;\&#125;/</span></span><br><span class="line">  <span class="keyword">let</span> type = node.nodeType</span><br><span class="line">  <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">    <span class="keyword">case</span>  <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">let</span> attr = node.attributes;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; attr.length; i++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (attr[i].nodeName == <span class="string">'v-model'</span>) &#123;</span><br><span class="line">              <span class="keyword">let</span> name = attr[i].nodeValue</span><br><span class="line">	          node.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		      vm[name] = e.target.value</span><br><span class="line">	        &#125;)</span><br><span class="line">	          node.value = vm[name]</span><br><span class="line">	          node.removeAttribute(<span class="string">'v-model'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span>  <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">if</span> (reg.test(node.nodeValue)) &#123;</span><br><span class="line">            <span class="keyword">let</span> name = <span class="built_in">RegExp</span>.$<span class="number">1</span></span><br><span class="line">            name = name.trim()</span><br><span class="line">            node.nodeValue = vm[name]</span><br><span class="line">            <span class="keyword">new</span> Watcher(vm, node, name)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">obj, vm</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.keys(obj).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">    defineReactive(vm, key, obj[key])</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">obj, key, val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> dep = <span class="keyword">new</span> Dep()</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (Dep.target) dep.addSub(Dep.target)</span><br><span class="line">       <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">newVal</span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (val === newVal) <span class="keyword">return</span></span><br><span class="line">       val = newVal</span><br><span class="line">       dep.notify()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Watcher</span>(<span class="params">vm, node, name</span>) </span>&#123;</span><br><span class="line">  Dep.target = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.node = node</span><br><span class="line">  <span class="keyword">this</span>.vm = vm</span><br><span class="line">  <span class="keyword">this</span>.update()</span><br><span class="line">  Dep.target = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Watcher.prototype = &#123;</span><br><span class="line">  update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.get()</span><br><span class="line">    <span class="keyword">this</span>.node.nodeValue = <span class="keyword">this</span>.value</span><br><span class="line">  &#125;,</span><br><span class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = <span class="keyword">this</span>.vm[<span class="keyword">this</span>.name]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dep</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.subs = []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dep.prototype = &#123;</span><br><span class="line">  addSub: <span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.subs.push(sub)</span><br><span class="line">  &#125;,</span><br><span class="line">  notify: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</span><br><span class="line">      sub.update()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.data = options.data</span><br><span class="line">  <span class="keyword">let</span> data = <span class="keyword">this</span>.data</span><br><span class="line">  observe(data, <span class="keyword">this</span>)</span><br><span class="line">  <span class="keyword">let</span> id = options.el</span><br><span class="line">  <span class="keyword">let</span> dom = node2Fragment(doc.getElementById(id), <span class="keyword">this</span>)</span><br><span class="line">  doc.getElementById(id).appendChild(dom)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">&lt;div id="app"&gt;</span></span><br><span class="line"><span class="regexp">   &lt;input type="text" v-model="text" /</span>&gt;</span><br><span class="line">   &#123;&#123;text&#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el:<span class="string">'app'</span>,</span><br><span class="line">       data:&#123;</span><br><span class="line">          text:<span class="string">'hello world!'</span></span><br><span class="line">       &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/25/Date-a-Girl-by-Science/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          追女生科学方法论
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/23/Javascript-Basic/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Javascript基础知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">标签云</h3>
+    <div class="widget tagcloud animated fadeIn">
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/About-Me/" style="font-size: 10px;">About Me</a> <a href="/tags/BaiduMap/" style="font-size: 10px;">BaiduMap</a> <a href="/tags/Book-Notes/" style="font-size: 10px;">Book Notes</a> <a href="/tags/Deploy-Project/" style="font-size: 10px;">Deploy Project</a> <a href="/tags/FrontEnd/" style="font-size: 10px;">FrontEnd</a> <a href="/tags/FrontEndStore/" style="font-size: 10px;">FrontEndStore</a> <a href="/tags/Girls/" style="font-size: 10px;">Girls</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Javascript-Basic/" style="font-size: 10px;">Javascript Basic</a> <a href="/tags/LeetCode-Easy/" style="font-size: 10px;">LeetCode Easy</a> <a href="/tags/Nginx-Static-Resource-Lib/" style="font-size: 10px;">Nginx Static Resource Lib</a> <a href="/tags/Poems/" style="font-size: 10px;">Poems</a> <a href="/tags/Python-Basic/" style="font-size: 10px;">Python Basic</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Recommendations/" style="font-size: 10px;">Recommendations</a> <a href="/tags/Spring-Boot-Starts/" style="font-size: 10px;">Spring Boot Starts</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Vue-dev/" style="font-size: 10px;">Vue dev</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">归档</h3>
+    <div class="widget animated fadeIn">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">最新文章</h3>
+    <div class="widget animated fadeIn">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/13/FrontEndStore/">前端开发杂货铺</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/20/React/">React+AntDesgin开发实践</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/19/Dev/">Vue项目开发实践</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/FrontDndDevelopment/">那些年，我们用过的jQuery</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/25/About-Hadoop/">关于Hadoop</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer" class="animated fadeIn">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chiang. All Rights Reserved. Powered by Hexo.
+      jiangqizhi@aliyun.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+
+  <script src="/js/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/baidu-analysis.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>一个项目的部署 | Ourvibes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="icon" href="/icon/earth.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap" class="animated fadeInDown">
+        <a href="/" id="logo">Ourvibes</a>
+      </h1>
+      <h2 id="slogan" class="animated fadeInUp">Forever youthful. Forever weeping.</h2>
+      
+    </div>
+    <div id="header-inner" class="inner animated fadeInDown">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Deploy-Project" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta animated fadeInUp">
+    <a href="/2018/03/20/Deploy-Project/" class="article-date">
+  <time datetime="2018-03-20T02:05:10.000Z" itemprop="datePublished">2018-03-20 10:05:10</time>
+</a>
+    
+  </div>
+  <div class="animated  fadeIn article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一个项目的部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>前段时间部署了一个较为复杂的分布式集群管理平台的项目和一堆组件和引擎服务，学会了一些Xshell的基础命令，对<a href="https://www.ubuntu.com/download/server" target="_blank" rel="noopener">Ubuntu Server</a>和<a href="https://mirror.tuna.tsinghua.edu.cn/centos" target="_blank" rel="noopener">Centos</a>有了基础了的认识。</p>
+<p><strong>关键字：</strong></p>
+<ul>
+<li>防火墙</li>
+<li>桥接和NAT模式</li>
+<li>权限</li>
+<li>宿主机和虚拟机互ping  !important</li>
+<li>虚拟机访问外网</li>
+<li>yum</li>
+<li>glibc</li>
+</ul>
+<a id="more"></a>
+<p>系统版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br><span class="line">cat  /proc/version</span><br></pre></td></tr></table></figure></p>
+<p>防火墙:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld     //临时关闭</span><br><span class="line">systemctl disable firewalld  //禁止开机自启动  </span><br><span class="line">firewall-cmd --state         //查看防火墙状态</span><br></pre></td></tr></table></figure></p>
+<p>网卡配置项的修改:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no    </span><br><span class="line">BOOTPROTO=static   // 默认是dhcp</span><br><span class="line">PEERROUTES=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=ens33</span><br><span class="line">UUID=ffc22089-1dd0-4081-b598-2547860756d4</span><br><span class="line">DEVICE=ens33</span><br><span class="line">ONBOOT=yes    // 开机自启动</span><br><span class="line">PEERDNS=yes </span><br><span class="line">PEERROUTES=yes </span><br><span class="line">IPV6_PEERDNS=yes </span><br><span class="line">IPV6_PEERROUTES=yes </span><br><span class="line">IPADDR0=192.168.214.200   </span><br><span class="line">PREFIXO0=24   </span><br><span class="line">GATEWAY0=192.168.214.2</span><br><span class="line">DNS1=223.5.5.5     // 阿里云DNS</span><br><span class="line">DNS2=223.6.6.6</span><br></pre></td></tr></table></figure></p>
+<p>配置好之后，需要<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure></p>
+<p>jdk的配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/etc/profile   //目录</span><br><span class="line">#set java environment</span><br><span class="line">JAVA_HOME=/java/jdk1.8.0_112</span><br><span class="line">JRE_HOME=/java/jdk1.8.0_112/jre</span><br><span class="line">CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br><span class="line">source /etc/profile  //保存生效</span><br></pre></td></tr></table></figure></p>
+<p><strong>yum:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum install -y unzip zip</span><br><span class="line">yum -y install 包名（支持*）// 自动选择y，全自动</span><br><span class="line">yum install 包名（支持*） // 手动选择y or n</span><br><span class="line">yum remove 包名（不支持*）</span><br><span class="line">rpm -ivh 包名（支持*）// 安装rpm包</span><br><span class="line">rpm -e 包名（不支持*）// 卸载rpm包</span><br></pre></td></tr></table></figure></p>
+<p>glibc升级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">glibc清华镜像：https://mirrors.ustc.edu.cn/gnu/glibc/</span><br><span class="line"></span><br><span class="line">export LD_LIBRARY_PATH=/lib64   // 修改 LD_LIBRARY_PATH 环境变量</span><br><span class="line"></span><br><span class="line">ll /lib64/libc.so.6  // 显示版本</span><br><span class="line"></span><br><span class="line">mkdir build  // 新建build文件夹，已备编译使用</span><br><span class="line"></span><br><span class="line">cd build</span><br><span class="line"></span><br><span class="line">../configure --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin --disable-sanity-checks  // 配置</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install  //编译安装</span><br><span class="line"></span><br><span class="line">getconf -a |grep glibc -i  // 查看glibc版本，查看是否升级成功</span><br><span class="line"></span><br><span class="line">export LD_LIBRARY_PATH=.:/lib64  // 恢复</span><br></pre></td></tr></table></figure></p>
+<p>当然有些人喜欢黑窗口，命令行，但是接触了部署大型复杂项目的部署之后，我觉得还是用图形化界面吧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deploy-Project/">Deploy Project</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/25/Spring-Boot/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot项目开发实践
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/08/LeetCode-Easy/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LeetCode简单算法题的练习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">标签云</h3>
+    <div class="widget tagcloud animated fadeIn">
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/About-Me/" style="font-size: 10px;">About Me</a> <a href="/tags/BaiduMap/" style="font-size: 10px;">BaiduMap</a> <a href="/tags/Book-Notes/" style="font-size: 10px;">Book Notes</a> <a href="/tags/Deploy-Project/" style="font-size: 10px;">Deploy Project</a> <a href="/tags/FrontEnd/" style="font-size: 10px;">FrontEnd</a> <a href="/tags/FrontEndStore/" style="font-size: 10px;">FrontEndStore</a> <a href="/tags/Girls/" style="font-size: 10px;">Girls</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Javascript-Basic/" style="font-size: 10px;">Javascript Basic</a> <a href="/tags/LeetCode-Easy/" style="font-size: 10px;">LeetCode Easy</a> <a href="/tags/Nginx-Static-Resource-Lib/" style="font-size: 10px;">Nginx Static Resource Lib</a> <a href="/tags/Poems/" style="font-size: 10px;">Poems</a> <a href="/tags/Python-Basic/" style="font-size: 10px;">Python Basic</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Recommendations/" style="font-size: 10px;">Recommendations</a> <a href="/tags/Spring-Boot-Starts/" style="font-size: 10px;">Spring Boot Starts</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Vue-dev/" style="font-size: 10px;">Vue dev</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">归档</h3>
+    <div class="widget animated fadeIn">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title animated fadeInUp">最新文章</h3>
+    <div class="widget animated fadeIn">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/13/FrontEndStore/">前端开发杂货铺</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/20/React/">React+AntDesgin开发实践</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/19/Dev/">Vue项目开发实践</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/21/FrontDndDevelopment/">那些年，我们用过的jQuery</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/25/About-Hadoop/">关于Hadoop</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer" class="animated fadeIn">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chiang. All Rights Reserved. Powered by Hexo.
+      jiangqizhi@aliyun.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+
+  <script src="/js/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/baidu-analysis.js"></script>
+
+  </div>
+</body>
+</html>
