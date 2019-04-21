@@ -388,6 +388,8 @@ proxy.title // 35
 </li>
 <li><p>Vue的双向绑定？<br><code>1.实现一个监听器Observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者。</code><br><code>2.实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。</code><br><code>3.实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</code></p>
 </li>
+<li><p>defer和async的区别?<br><code>&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</code><br><code>&lt;script async src=&quot;script.js&quot;&gt;&lt;/script&gt;有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</code><br><code>&lt;script defer src=&quot;myscript.js&quot;&gt;&lt;/script&gt;有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</code><br><code>在现实当中， 延迟脚本并不一定会按照顺序执行,也不一定会在DOMContentLoaded事件触发前执行,因此最好只包含一个延迟脚本。</code></p>
+</li>
 </ol>
 
       
