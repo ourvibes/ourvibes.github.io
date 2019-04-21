@@ -380,10 +380,11 @@ proxy.title // 35
 </code></pre></li>
 <li><p><strong>proto</strong> 和 prototype ？<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/proto" target="_blank" rel="noopener"><strong>proto</strong></a><code>属性是Object.prototype 一个简单的访问器属性，其中包含了get（获取）和set（设置）的方法，任何一个__proto__的存取属性都继承于Object.prototype，但一个访问属性如果不是来源于Object.prototype就不拥有.__proto__属性，譬如一个元素设置了其他的.__proto__属性在Object.prototype之前，将会覆盖原有的Object.prototype。</code><br><code>我们需要牢记两点：__proto__和constructor属性是对象所独有的；prototype属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和constructor属性。</code><br><code>__proto__属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的__proto__属性所指向的那个对象（父对象）里找，一直找，直到__proto__属性的终点null，然后返回undefined，通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。</code><br><code>prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即fn.__proto__ === Foo.prototype</code><br><code>constructor属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向Function。</code></p>
 </li>
-<li><p>重绘和重排？<br><code>重绘（repaint或redraw）：当盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来之后，浏览器便把这些原色都按照各自的特性绘制一遍，将内容呈现在页面上。重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</code><br><code>重排（重构/回流/reflow）：当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。</code></p>
+<li><p>重绘和重排？<br><code>重排：当DOM变化影响到了元素的几何属性（宽，高改变等等），浏览器此时需要重新计算元素的几何属性，并且页面中其他元素的几何属性可能会受到影响，这样渲染树就发生了改变，也就是重新构造RenderTree渲染树。</code><br><code>重绘：如果DOM变化仅仅是影响到了背景色等等非几何属性，此时就发生重绘，因为布局没有发生改变。</code></p>
 </li>
-<li><p>js中<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="noopener">new</a>操作符？<br><code>创建一个空的简单JavaScript对象（即{}）；</code><br><code>链接该对象（即设置该对象的构造函数）到另一个对象 ；</code><br><code>将步骤1新创建的对象作为this的上下文 ；</code><br><code>如果该函数没有返回对象，则返回this。</code></p>
-</li>
+</ol>
+<ol start="44">
+<li>js中<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="noopener">new</a>操作符？<br><code>创建一个空的简单JavaScript对象（即{}）；</code><br><code>链接该对象（即设置该对象的构造函数）到另一个对象 ；</code><br><code>将步骤1新创建的对象作为this的上下文 ；</code><br><code>如果该函数没有返回对象，则返回this。</code></li>
 </ol>
 <ol start="45">
 <li><p>null和undefined的区别？<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="noopener">undefined</a> <code>：是所有没有赋值变量的默认值，自动赋值</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null" target="_blank" rel="noopener">null</a> <code>：变量未指向任何对象,没有类型或者是值</code></p>
@@ -391,6 +392,8 @@ proxy.title // 35
 <li><p>Vue的双向绑定？<br><code>1.实现一个监听器Observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者。</code><br><code>2.实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。</code><br><code>3.实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</code></p>
 </li>
 <li><p>defer和async的区别?<br><code>&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</code><br><code>&lt;script async src=&quot;script.js&quot;&gt;&lt;/script&gt;有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</code><br><code>&lt;script defer src=&quot;myscript.js&quot;&gt;&lt;/script&gt;有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</code><br><code>在现实当中， 延迟脚本并不一定会按照顺序执行,也不一定会在DOMContentLoaded事件触发前执行,因此最好只包含一个延迟脚本。</code></p>
+</li>
+<li><p>BOM 和 DOM ?<br><code>BOM(Browser Object Model)：浏览器对象模型。提供与浏览器交互的方法和接口（即访问和操作浏览器）。window（访问浏览器窗口的一个接口，又是ECMAScript规定的Global对象） , navigator（浏览器详细信息） ，location（浏览器所加载页面的详细信息），screen（用户显示器分辨率详细信息），history（用户上网的历史记录）</code><br><code>DOM(Document Object Model)：文档对象模型。</code></p>
 </li>
 </ol>
 
