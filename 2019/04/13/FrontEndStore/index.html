@@ -382,9 +382,11 @@ proxy.title // 35
 </li>
 <li><p>重绘和重排？<br><code>重绘（repaint或redraw）：当盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来之后，浏览器便把这些原色都按照各自的特性绘制一遍，将内容呈现在页面上。重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</code><br><code>重排（重构/回流/reflow）：当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。</code></p>
 </li>
-<li><p>js中new操作符？<br><code>创建一个空对象</code><br><code>将所创建对象的__proto__属性值设成构造函数的prototype属性值</code><br><code>执行构造函数中的代码，构造函数中的this指向该对象</code><br><code>返回该对象（除非构造函数中返回一个对象）</code></p>
+<li><p>js中<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="noopener">new</a>操作符？<br><code>创建一个空的简单JavaScript对象（即{}）；</code><br><code>链接该对象（即设置该对象的构造函数）到另一个对象 ；</code><br><code>将步骤1新创建的对象作为this的上下文 ；</code><br><code>如果该函数没有返回对象，则返回this。</code></p>
 </li>
-<li><p>null和undefined的区别？<br><code>undefined：是所有没有赋值变量的默认值，自动赋值</code><br><code>null：主动释放一个变量引用的对象，表示一个变量不再指向任何对象地址</code></p>
+</ol>
+<ol start="45">
+<li><p>null和undefined的区别？<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="noopener">undefined</a> <code>：是所有没有赋值变量的默认值，自动赋值</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null" target="_blank" rel="noopener">null</a> <code>：变量未指向任何对象,没有类型或者是值</code></p>
 </li>
 <li><p>Vue的双向绑定？<br><code>1.实现一个监听器Observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者。</code><br><code>2.实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。</code><br><code>3.实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</code></p>
 </li>
