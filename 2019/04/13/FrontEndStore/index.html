@@ -158,8 +158,11 @@
 <ol>
 <li><p>如何理解HTML语义化？<br><code>HTML语义化：即HTML结构，根据内容的结构化（内容语义化），选择合适的标签（代码语义化）便于开发者阅读和写出更优雅的代码的同时让浏览器的爬虫和机器很好地解析。同时去掉CSS样式表之后，依然能很好的呈现内容的结构。</code></p>
 </li>
-<li><p>meta viewport 是做什么用的，怎么写？<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;</code><br><code>用户可以通过平移和缩放来浏览页面的不同区域，控制视口的尺寸及比例（移动端）。</code></p>
+<li><p>meta viewport 是做什么用的，怎么写？<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;</code></p>
 </li>
+</ol>
+<p><code>用户可以通过平移和缩放来浏览页面的不同区域，控制视口的尺寸及比例（移动端）。</code></p>
+<ol start="3">
 <li><p>canvas 元素是干什么的?<br><code>可用于通过使用JavaScript中的脚本来绘制图形，WebGL也使用canvas元素在网页上绘制硬件加速的3D图形。</code></p>
 </li>
 <li><p>盒模型<br><code>外边距边, 边框边, 内填充边 与 内容边</code></p>
@@ -395,6 +398,17 @@ proxy.title // 35
 </li>
 <li><p>BOM 和 DOM ?<br><code>BOM(Browser Object Model)：浏览器对象模型。提供与浏览器交互的方法和接口（即访问和操作浏览器）。window（访问浏览器窗口的一个接口，又是ECMAScript规定的Global对象） , navigator（浏览器详细信息） ，location（浏览器所加载页面的详细信息），screen（用户显示器分辨率详细信息），history（用户上网的历史记录）</code><br><code>DOM(Document Object Model)：文档对象模型。</code></p>
 </li>
+<li><p>map和forEach的区别？<br><code>map：一个新数组，每个元素都是回调函数的结果。</code></p>
+<pre><code>var arr = [1, 4, 9, 16]
+const map1 = arr.map( x =&gt; x * 2 )
+</code></pre><p><code>forEach：方法对数组的每个元素执行一次提供的函数。</code></p>
+<pre><code>const items = [&apos;item1&apos;, &apos;item2&apos;, &apos;item3&apos;]
+const copy = []
+items.forEach(function(item){
+    copy.push(item)
+})
+</code></pre></li>
+<li>数组降维？<br><code>[1, [2, [3,[4,5]]]].flat(Infinity)</code>    </li>
 </ol>
 
       
