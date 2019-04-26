@@ -60,7 +60,7 @@
 <ul>
 <li><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">mdn</a></li>
 </ul>
-<p>blogs :</p>
+<p>company blogs :</p>
 <ul>
 <li><a href="https://efe.baidu.com/" target="_blank" rel="noopener">baidu-efe</a></li>
 <li><a href="http://eux.baidu.com/" target="_blank" rel="noopener">baidu-eux</a></li>
@@ -75,6 +75,12 @@
 <li><a href="https://ymfe.org/" target="_blank" rel="noopener">qunar</a></li>
 <li><a href="https://zhuanlan.zhihu.com/ElemeFE" target="_blank" rel="noopener">eleme</a></li>
 <li><a href="https://tech.meituan.com/" target="_blank" rel="noopener">meituan</a></li>
+</ul>
+<p>personal blogs ：</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="noopener">ruanyifeng</a></li>
+<li><a href="https://www.liaoxuefeng.com/" target="_blank" rel="noopener">liaoxuefeng</a></li>
+<li><a href="http://www.yinwang.org/" target="_blank" rel="noopener">yinwang</a></li>
 </ul>
 <p>Vue UI：</p>
 <ul>
@@ -156,7 +162,7 @@
 <li>Questions</li>
 </ul>
 <ol>
-<li><p>如何理解HTML语义化？<br><code>HTML语义化：即HTML结构，根据内容的结构化（内容语义化），选择合适的标签（代码语义化）便于开发者阅读和写出更优雅的代码的同时让浏览器的爬虫和机器很好地解析。同时去掉CSS样式表之后，依然能很好的呈现内容的结构。</code></p>
+<li><p>如何理解HTML语义化？<br><code>HTML语义化：即HTML结构，根据内容选择合适的标签，便于开发者阅读并写出更优雅的代码的同时，让爬虫和浏览器更好地解析。同时去掉CSS样式表之后，依然能很好的呈现内容的结构。</code></p>
 </li>
 <li><p>meta viewport 是做什么用的，怎么写？<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;</code></p>
 </li>
@@ -374,6 +380,17 @@
 </ol>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> slideOutUp &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="attribute">visibility</span>: hidden;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate3d</span>(0, -100%, 0);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(0, -100%, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">keyframes</span> slideOutUp &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(0, 0, 0);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="attribute">visibility</span>: hidden;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate3d</span>(0, -100%, 0);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(0, -100%, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.slideOutUp</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-animation-name</span>: slideOutUp;</span><br><span class="line">  <span class="attribute">animation-name</span>: slideOutUp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">transition-property</span>: width;</span><br><span class="line">    <span class="attribute">transition-duration</span>: <span class="number">1s</span>;</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: linear;</span><br><span class="line">    <span class="attribute">transition-delay</span>: <span class="number">2s</span>;</span><br><span class="line">    <span class="comment">/* Firefox 4 */</span></span><br><span class="line">    <span class="attribute">-moz-transition-property</span>:width;</span><br><span class="line">    <span class="attribute">-moz-transition-duration</span>:<span class="number">1s</span>;</span><br><span class="line">    <span class="attribute">-moz-transition-timing-function</span>:linear;</span><br><span class="line">    <span class="attribute">-moz-transition-delay</span>:<span class="number">2s</span>;</span><br><span class="line">    <span class="comment">/* Safari 和 Chrome */</span></span><br><span class="line">    <span class="attribute">-webkit-transition-property</span>:width;</span><br><span class="line">    <span class="attribute">-webkit-transition-duration</span>:<span class="number">1s</span>;</span><br><span class="line">    <span class="attribute">-webkit-transition-timing-function</span>:linear;</span><br><span class="line">    <span class="attribute">-webkit-transition-delay</span>:<span class="number">2s</span>;</span><br><span class="line">    <span class="comment">/* Opera */</span></span><br><span class="line">    <span class="attribute">-o-transition-property</span>:width;</span><br><span class="line">    <span class="attribute">-o-transition-duration</span>:<span class="number">1s</span>;</span><br><span class="line">    <span class="attribute">-o-transition-timing-function</span>:linear;</span><br><span class="line">    <span class="attribute">-o-transition-delay</span>:<span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="53">
+<li><a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html" target="_blank" rel="noopener">RESTful API</a> ?</li>
+</ol>
+<ul>
+<li><code>RESTful API是目前最流行的API设计规范，用于Web数据接口的设计。RESTful的核心思想就是，客户端发出的数据操作指令都是&quot;动词 + 宾语&quot;的结构。</code></li>
+<li><code>动词的覆盖</code></li>
+<li><code>宾语必须是名词</code></li>
+<li><code>复数 URL</code></li>
+<li><code>避免多级 URL</code></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET：读取（Read）</span><br><span class="line">POST：新建（Create）</span><br><span class="line">PUT：更新（Update）</span><br><span class="line">PATCH：更新（Update），通常是部分更新</span><br><span class="line">DELETE：删除（Delete）</span><br></pre></td></tr></table></figure>
 
       
     </div>
