@@ -11305,13 +11305,11 @@ a.article-title:hover {
   justify-content: center;
   margin: 0.618% 0.618% 0.618% 0;
   border-radius: 50%;
-  background: #333;
+  background: #222;
   color: #fff;
   text-decoration: none;
 }
 .article-more-link a:hover {
-  background: #222;
-  color: #fff;
   text-decoration: none;
 }
 .article-footer {
@@ -11821,11 +11819,19 @@ pre .javascript .function {
   padding: 15px;
 }
 .widget a {
-  color: #3b5998;
+  color: #444;
+  border-bottom: 2px solid #fadc23;
   text-decoration: none;
+  line-height: 1;
 }
 .widget a:hover {
-  text-decoration: underline;
+  outline-width: 0;
+  -webkit-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  -moz-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  -ms-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  -webkit-box-shadow: inset 0 -6px #fadc23;
+  box-shadow: inset 0 -6px #fadc23;
 }
 .widget ul ul,
 .widget ol ul,
