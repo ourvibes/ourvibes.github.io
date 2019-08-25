@@ -11044,7 +11044,7 @@ a {
   font-weight: bold;
 }
 #header {
-  height: 40%;
+  height: 100%;
   position: relative;
 }
 #header:before,
@@ -11085,7 +11085,7 @@ a {
   text-align: center;
   height: 36px;
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 0;
   margin-top: -18px;
 }
@@ -11097,7 +11097,7 @@ a {
 #logo {
   font-size: 36px;
   line-height: 36px;
-  z-index: 1;
+  z-index: 9999;
 }
 #slogan {
   color: #fff;
@@ -11168,7 +11168,7 @@ a {
   transition: color 0.2s;
 }
 a.article-title:hover {
-  color: #3b5998;
+  color: #096dd9;
 }
 .article-entry {
   color: #262626;
@@ -11197,7 +11197,7 @@ a.article-title:hover {
   margin: 1.1em 0;
 }
 .article-entry a {
-  color: #3b5998;
+  color: #096dd9;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -11457,7 +11457,7 @@ a.article-title:hover {
   margin: 50px 0;
 }
 #comments a {
-  color: #3b5998;
+  color: #096dd9;
 }
 .archives-wrap {
   margin: 50px 0;
@@ -11512,7 +11512,7 @@ a.article-title:hover {
   line-height: 1.2em;
 }
 .archive-article-title:hover {
-  color: #3b5998;
+  color: #096dd9;
 }
 .archive-article-footer {
   margin-top: 1em;
@@ -11586,7 +11586,7 @@ a.article-title:hover {
   font-size: 14px;
 }
 #footer a {
-  color: #3b5998;
+  color: #096dd9;
   text-decoration: none;
 }
 #footer a:hover {
@@ -11708,7 +11708,7 @@ a.article-title:hover {
   margin-left: 20px;
 }
 .article-entry .gist .gist-file .gist-meta a {
-  color: #3b5998;
+  color: #096dd9;
   font-weight: normal;
 }
 .article-entry .gist .gist-file .gist-meta a:hover {
@@ -11817,7 +11817,7 @@ pre .javascript .function {
 }
 .widget a {
   color: #262626;
-  border-bottom: 2px solid #fff566;
+  border-bottom: 2px solid #e6f7ff;
   text-decoration: none;
   line-height: 1;
 }
@@ -11827,8 +11827,8 @@ pre .javascript .function {
   -moz-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   -ms-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
-  -webkit-box-shadow: inset 0 -6px #fff566;
-  box-shadow: inset 0 -6px #fff566;
+  -webkit-box-shadow: inset 0 -6px #e6f7ff;
+  box-shadow: inset 0 -6px #e6f7ff;
 }
 .widget ul ul,
 .widget ol ul,
