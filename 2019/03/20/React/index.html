@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>React+AntDesgin开发实践 | Ourvibes</title>
@@ -33,7 +33,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-React" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-React" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta animated fadeInUp">
     <a href="/2019/03/20/React/" class="article-date">
   <time datetime="2019-03-20T10:34:48.000Z" itemprop="datePublished">2019-03-20 18:34:48</time>
@@ -66,6 +66,7 @@
 <li><a href="https://umijs.org/zh/guide" target="_blank" rel="noopener">umijs</a></li>
 </ul>
 <a id="more"></a>
+
 <p>Flux 是一种架构思想，专门解决软件的结构问题。（单向流动）</p>
 <ul>
 <li>View： 视图层</li>
@@ -88,6 +89,7 @@
 <li>componentWillUnmount()</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Timer</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; </span><br><span class="line">       seconds: <span class="number">0</span> </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.handleChange = <span class="keyword">this</span>.handleChange.bind(<span class="keyword">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  handleChange(e) &#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">value</span>: e.target.value &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">prevState</span> =&gt;</span> (&#123;</span><br><span class="line">      seconds: prevState.seconds + <span class="number">1</span></span><br><span class="line">    &#125;))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.interval = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.tick(),<span class="number">6000</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    clearInterval(<span class="keyword">this</span>.interval)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"container"</span>&gt;</span><br><span class="line">        &lt;span&gt;Seconds：&lt;<span class="regexp">/span&gt; </span></span><br><span class="line"><span class="regexp">        &lt;input </span></span><br><span class="line"><span class="regexp">           value="&#123;this.state.seconds&#125;" </span></span><br><span class="line"><span class="regexp">           onChange="&#123;this.handleChange&#125;"</span></span><br><span class="line"><span class="regexp">        /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(&lt;Timer /</span>&gt;, <span class="built_in">document</span>.getElmentById(<span class="string">"root"</span>))</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
