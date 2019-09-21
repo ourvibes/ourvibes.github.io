@@ -11614,7 +11614,7 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: font-mono;
+  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
 }
 .article-entry code {
   background: #f2f2f2;
@@ -11678,7 +11678,7 @@ a.article-title:hover {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: font-mono;
+  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
