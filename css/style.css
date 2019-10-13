@@ -11167,7 +11167,7 @@ button::-moz-focus-inner {
   transition: color 0.2s;
 }
 a.article-title:hover {
-  color: #096dd9;
+  color: #40a9ff;
 }
 .article-entry {
   color: #262626;
@@ -11196,11 +11196,19 @@ a.article-title:hover {
   margin: 1.1em 0;
 }
 .article-entry a {
-  color: #096dd9;
+  color: #262626;
+  border-bottom: 2px solid #bae7ff;
   text-decoration: none;
+  line-height: 1;
 }
 .article-entry a:hover {
-  text-decoration: underline;
+  outline-width: 0;
+  -webkit-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  -moz-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  -ms-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
+  -webkit-box-shadow: inset 0 -7px #bae7ff;
+  box-shadow: inset 0 -7px #bae7ff;
 }
 .article-entry ul,
 .article-entry ol,
@@ -11232,7 +11240,7 @@ a.article-title:hover {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  font-family: Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
   font-size: 1.4em;
   margin: 1.2em 20px;
   text-align: center;
@@ -11240,7 +11248,7 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 14px;
   margin: 1.2em 0;
-  font-family: "Microsoft YaHei", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -11283,30 +11291,41 @@ a.article-title:hover {
   height: 100%;
   margin-top: 0;
 }
-.article-more-link a {
+.article-entry .article-more-link {
+  float: right;
+  margin: 0.618% 0.618% 0.618% 0;
+}
+.article-entry .just-more-link {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: box;
   display: flex;
-  float: right;
-  width: 22px;
-  height: 22px;
-  font-size: 14px;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  margin: 0.618% 0.618% 0.618% 0;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  line-height: 22px;
+  text-align: center;
   border-radius: 50%;
   background: #222;
   color: #fff;
-  text-decoration: none;
+  border-bottom: none;
 }
-.article-more-link a:hover {
+.article-entry .just-more-link:hover {
   text-decoration: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .article-footer {
   font-size: 0.85em;
@@ -11456,7 +11475,7 @@ a.article-title:hover {
   margin: 50px 0;
 }
 #comments a {
-  color: #096dd9;
+  color: #40a9ff;
 }
 .archives-wrap {
   margin: 50px 0;
@@ -11511,7 +11530,7 @@ a.article-title:hover {
   line-height: 1.2em;
 }
 .archive-article-title:hover {
-  color: #096dd9;
+  color: #40a9ff;
 }
 .archive-article-footer {
   margin-top: 1em;
@@ -11585,7 +11604,7 @@ a.article-title:hover {
   font-size: 14px;
 }
 #footer a {
-  color: #096dd9;
+  color: #40a9ff;
   text-decoration: none;
 }
 #footer a:hover {
@@ -11701,14 +11720,14 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #444 none repeat scroll 0% 0%;
   color: #999;
-  font: 0.85em "Microsoft YaHei", Arial, sans-serif;
+  font: 0.85em "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
   margin-left: 20px;
 }
 .article-entry .gist .gist-file .gist-meta a {
-  color: #096dd9;
+  color: #40a9ff;
   font-weight: normal;
 }
 .article-entry .gist .gist-file .gist-meta a:hover {
@@ -11817,7 +11836,7 @@ pre .javascript .function {
 }
 .widget a {
   color: #262626;
-  border-bottom: 2px solid #e6f7ff;
+  border-bottom: 2px solid #bae7ff;
   text-decoration: none;
   line-height: 1;
 }
@@ -11827,8 +11846,8 @@ pre .javascript .function {
   -moz-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   -ms-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
-  -webkit-box-shadow: inset 0 -6px #e6f7ff;
-  box-shadow: inset 0 -6px #e6f7ff;
+  -webkit-box-shadow: inset 0 -6px #bae7ff;
+  box-shadow: inset 0 -6px #bae7ff;
 }
 .widget ul ul,
 .widget ol ul,
