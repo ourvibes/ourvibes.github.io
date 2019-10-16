@@ -11043,7 +11043,7 @@ button::-moz-focus-inner {
   font-weight: bold;
 }
 #header {
-  height: 42%;
+  height: 100%;
   position: relative;
 }
 #header:before,
@@ -11082,11 +11082,11 @@ button::-moz-focus-inner {
 }
 #header-title {
   text-align: center;
-  height: 32px;
+  height: 36px;
   position: absolute;
-  top: 45%;
+  top: 42%;
   left: 0;
-  margin-top: -19.776px;
+  margin-top: -22.248px;
 }
 #logo,
 #subtitle {
@@ -11094,8 +11094,8 @@ button::-moz-focus-inner {
   color: #fff;
 }
 #logo {
-  font-size: 32px;
-  line-height: 32px;
+  font-size: 36px;
+  line-height: 36px;
   z-index: 9999;
 }
 #slogan {
