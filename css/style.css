@@ -11167,7 +11167,7 @@ button::-moz-focus-inner {
   transition: color 0.2s;
 }
 a.article-title:hover {
-  color: #40a9ff;
+  color: #5079d9;
 }
 .article-entry {
   color: #262626;
@@ -11197,7 +11197,7 @@ a.article-title:hover {
 }
 .article-entry a {
   color: #262626;
-  border-bottom: 2px solid #bae7ff;
+  border-bottom: 2px solid #fff1b8;
   text-decoration: none;
   line-height: 1;
 }
@@ -11207,8 +11207,8 @@ a.article-title:hover {
   -moz-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   -ms-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
-  -webkit-box-shadow: inset 0 -7px #bae7ff;
-  box-shadow: inset 0 -7px #bae7ff;
+  -webkit-box-shadow: inset 0 -7px #fff1b8;
+  box-shadow: inset 0 -7px #fff1b8;
 }
 .article-entry ul,
 .article-entry ol,
@@ -11475,7 +11475,7 @@ a.article-title:hover {
   margin: 50px 0;
 }
 #comments a {
-  color: #40a9ff;
+  color: #5079d9;
 }
 .archives-wrap {
   margin: 50px 0;
@@ -11530,7 +11530,7 @@ a.article-title:hover {
   line-height: 1.2em;
 }
 .archive-article-title:hover {
-  color: #40a9ff;
+  color: #5079d9;
 }
 .archive-article-footer {
   margin-top: 1em;
@@ -11604,7 +11604,7 @@ a.article-title:hover {
   font-size: 14px;
 }
 #footer a {
-  color: #40a9ff;
+  color: #5079d9;
   text-decoration: none;
 }
 #footer a:hover {
@@ -11727,7 +11727,7 @@ a.article-title:hover {
   margin-left: 20px;
 }
 .article-entry .gist .gist-file .gist-meta a {
-  color: #40a9ff;
+  color: #5079d9;
   font-weight: normal;
 }
 .article-entry .gist .gist-file .gist-meta a:hover {
@@ -11836,7 +11836,7 @@ pre .javascript .function {
 }
 .widget a {
   color: #262626;
-  border-bottom: 2px solid #bae7ff;
+  border-bottom: 2px solid #fff1b8;
   text-decoration: none;
   line-height: 1;
 }
@@ -11846,8 +11846,8 @@ pre .javascript .function {
   -moz-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   -ms-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
-  -webkit-box-shadow: inset 0 -6px #bae7ff;
-  box-shadow: inset 0 -6px #bae7ff;
+  -webkit-box-shadow: inset 0 -6px #fff1b8;
+  box-shadow: inset 0 -6px #fff1b8;
 }
 .widget ul ul,
 .widget ol ul,
