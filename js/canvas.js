@@ -18,7 +18,7 @@ var c = document.getElementsByTagName('canvas')[0],
 	c.width = w * pr
 	c.height = h * pr
 	x.scale(pr, pr)
-	x.globalAlpha = 0.5
+	x.globalAlpha = 0.2
 
 function i() {
 	x.clearRect(0, 0, w, h)
