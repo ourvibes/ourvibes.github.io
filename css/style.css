@@ -10843,7 +10843,6 @@ body {
   font-variant-ligatures: normal;
   font-variant-numeric: tabular-nums;
   font-variant-position: normal;
-  line-height: 22px;
 }
 a {
   text-decoration: none;
@@ -11043,7 +11042,7 @@ button::-moz-focus-inner {
   font-weight: bold;
 }
 #header {
-  height: 45%;
+  height: 100%;
   position: relative;
 }
 #header:before,
@@ -11074,7 +11073,7 @@ button::-moz-focus-inner {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("images/banner.jpg") center #fff;
+  background: url("images/banner.jpg") center #000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -11082,11 +11081,11 @@ button::-moz-focus-inner {
 }
 #header-title {
   text-align: center;
-  height: 35px;
+  height: 36px;
   position: absolute;
   top: 42%;
   left: 0;
-  margin-top: -21.63px;
+  margin-top: -22.248px;
 }
 #logo,
 #subtitle {
@@ -11094,8 +11093,8 @@ button::-moz-focus-inner {
   color: #fff;
 }
 #logo {
-  font-size: 35px;
-  line-height: 35px;
+  font-size: 36px;
+  line-height: 36px;
   z-index: 9999;
 }
 #slogan {
@@ -11240,7 +11239,7 @@ a.article-title:hover {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.4em;
   margin: 1.2em 20px;
   text-align: center;
@@ -11248,7 +11247,7 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 14px;
   margin: 1.2em 0;
-  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -11633,7 +11632,7 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 .article-entry code {
   background: #f2f2f2;
@@ -11697,7 +11696,7 @@ a.article-title:hover {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
@@ -11720,7 +11719,7 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #444 none repeat scroll 0% 0%;
   color: #999;
-  font: 0.85em "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font: 0.85em -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
