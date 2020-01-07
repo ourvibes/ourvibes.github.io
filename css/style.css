@@ -11571,7 +11571,7 @@ a.article-title:hover {
   background: #444 none repeat scroll 0% 0%;
   margin: 0 -12px;
   padding: 16px 20px;
-  font-size: 13px;
+  font-size: 13.5px;
   border-style: solid;
   border-color: #eee;
   border-width: 1px 0;
@@ -11586,7 +11586,7 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
 }
 .article-entry code {
   background: #fafafa;
@@ -11650,7 +11650,7 @@ a.article-title:hover {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
