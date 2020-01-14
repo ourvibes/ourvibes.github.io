@@ -11245,17 +11245,15 @@ a.article-title:hover {
   height: 100%;
   margin-top: 0;
 }
-.article-entry .article-more-link {
-  float: right;
-  margin: 0.618% 0.618% 0.618% 0;
-}
-.article-entry .just-more-link {
+.just-more-link {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: box;
   display: flex;
+  margin: 4px 0 16px 0;
+  float: right;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-flex-pack: center;
@@ -11266,20 +11264,13 @@ a.article-title:hover {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  width: 22px;
-  height: 22px;
-  font-size: 11px;
-  line-height: 22px;
-  text-align: center;
-  border-radius: 50%;
-  background: #222;
-  color: #fff;
-  border-bottom: none;
-}
-.article-entry .just-more-link:hover {
-  text-decoration: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 0 6px;
+  background-color: #fffbe6;
+  -webkit-box-shadow: inset 0 -1px #fff1b8;
+  box-shadow: inset 0 -1px #fff1b8;
 }
 .article-footer {
   font-size: 0.85em;
