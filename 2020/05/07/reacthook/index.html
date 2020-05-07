@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React Hooks | Ourvibes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="icon" href="/icon/earth.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"><canvas style="z-index: -1; position: fixed; width: 100%; height: 50%; overflow: hidden;"></canvas></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap" class="animated fadeInDown">
+        <a href="/" id="logo">Leslie Chiang</a>
+      </h1>
+      <h2 id="slogan" class="animated fadeInUp">Forever youthful. Forever weeping.</h2>
+      
+    </div>
+    <div id="header-inner" class="inner animated fadeInDown">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-reacthook" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta animated fadeInUp">
+    <a href="/2020/05/07/reacthook/" class="article-date">
+  <time datetime="2020-05-07T15:25:49.000Z" itemprop="datePublished">2020-05-07 23:25:49</time>
+</a>
+    
+  </div>
+  <div class="animated  fadeIn article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Hooks
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noopener">React Hook</a>写的一个todo。</p>
+<a id="more"></a>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>react hook todo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">      width: 60%;</span><br><span class="line">      margin: 20px auto;</span><br><span class="line">      text-align: center;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.todos</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">dashed</span> <span class="selector-id">#ccc</span>;</span></span><br><span class="line">      text-align: left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.todos</span> <span class="selector-tag">ul</span>&gt;<span class="selector-tag">li</span> &#123;</span></span><br><span class="line">      position: relative;</span><br><span class="line">      padding: 18px 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.hero</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">dashed</span> <span class="selector-id">#ccc</span>;</span></span><br><span class="line">      margin: 20px 0;</span><br><span class="line">      padding: 20px 0 20px 20px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.want</span> &#123;</span></span><br><span class="line">      line-height: 42px;</span><br><span class="line">      text-align: left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.want</span> <span class="selector-tag">input</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ccc</span>;</span></span><br><span class="line">      height: 32px;</span><br><span class="line">      line-height: 32px;</span><br><span class="line">      width: 250px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.action</span> &#123;</span></span><br><span class="line">      float: right;</span><br><span class="line">      padding-right: 20px;</span><br><span class="line">      cursor: pointer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.action</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line">      text-decoration: underline;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/react@16/umd/react.development.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/react-dom@16/umd/react-dom.development.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/babel-standalone@6.15.0/babel.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/babel"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> WantTodo = <span class="function">(<span class="params">&#123; addTodo &#125;</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> [input, setInput] = React.useState(<span class="string">''</span>)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> handleAddTodo = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line">      e.preventDefault()</span><br><span class="line"><span class="actionscript">      <span class="keyword">if</span> (!input) <span class="keyword">return</span></span></span><br><span class="line">      addTodo(input)</span><br><span class="line"><span class="actionscript">      setInput(<span class="string">''</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> (</span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">'want'</span>&gt;</span></span></span></span><br><span class="line">        &lt;input</span><br><span class="line"><span class="actionscript">          type=<span class="string">'text'</span></span></span><br><span class="line">          value=&#123;input&#125;</span><br><span class="line">          onChange=&#123;e =&gt; setInput(e.target.value)&#125;</span><br><span class="line">        /&gt;</span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">'action'</span> <span class="attr">onClick</span>=<span class="string">&#123;handleAddTodo&#125;</span>&gt;</span> do <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> App = <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> [todos, setTodos] = React.useState([</span></span><br><span class="line">      &#123;</span><br><span class="line"><span class="actionscript">        text: <span class="string">'读完《百年孤独》'</span>,</span></span><br><span class="line"><span class="actionscript">        status: <span class="literal">true</span></span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line"><span class="actionscript">        text: <span class="string">'学会周杰伦的《蒲公英的约定》'</span>,</span></span><br><span class="line"><span class="actionscript">        status: <span class="literal">false</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> TodoItem = <span class="function">(<span class="params">&#123; todo, index &#125;</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> (</span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=</span></span><span class="template-variable">&#123;&#123; textDecoration: todo.status ? 'line-through' : '' &#125;&#125;</span><span class="xml"><span class="tag">&gt;</span>&#123;todo.text&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">'action'</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> delTodo(index)&#125;&gt;del<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">'action'</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> yesTodo(index)&#125;&gt;yes<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> yesTodo = <span class="function">(<span class="params">index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">const</span> newTodos = [...todos]</span></span><br><span class="line"><span class="actionscript">      newTodos[index].status = <span class="literal">true</span></span></span><br><span class="line">      setTodos(newTodos)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> delTodo = <span class="function">(<span class="params">index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">const</span> newTodos = [...todos]</span></span><br><span class="line">      newTodos.splice(index, 1)</span><br><span class="line">      setTodos(newTodos)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> addTodo = <span class="function">(<span class="params">input</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">const</span> newTodos = [...todos, &#123; text: input, status: <span class="literal">false</span> &#125;]</span></span><br><span class="line">      setTodos(newTodos)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> (</span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">'container'</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">'todos'</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span></span><br><span class="line"><span class="javascript">            &#123;todos.map(<span class="function">(<span class="params">it, idx</span>) =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">TodoItem</span> <span class="attr">key</span>=<span class="string">&#123;idx&#125;</span> <span class="attr">todo</span>=<span class="string">&#123;it&#125;</span> <span class="attr">index</span>=<span class="string">&#123;idx&#125;</span> /&gt;</span>)&#125;</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">'hero'</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">WantTodo</span> <span class="attr">addTodo</span>=<span class="string">&#123;addTodo&#125;</span> /&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> app = <span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span></span><br><span class="line"></span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    app,</span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span></span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/28/GraphQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">GraphQL入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer" class="animated fadeIn">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Leslie Chiang. All Rights Reserved. Powered by Hexo.
+      jiangqizhi@aliyun.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+
+  
+<script src="/js/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/baidu-analysis.js"></script>
+
+
+
+<script src="/js/canvas.js"></script>
+
+
+  </div>
+</body>
+</html>
