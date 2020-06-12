@@ -11140,7 +11140,8 @@ a.article-title:hover {
 }
 .article-entry a {
   color: #262626;
-  border-bottom: 2px solid #fff1b8;
+  -webkit-box-shadow: inset 0 -6px #fff1b8;
+  box-shadow: inset 0 -6px #fff1b8;
   text-decoration: none;
   line-height: 1;
 }
@@ -11150,8 +11151,8 @@ a.article-title:hover {
   -moz-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   -ms-transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
   transition: box-shadow 0.2s cubic-bezier(0, 0.8, 0.16, 1);
-  -webkit-box-shadow: inset 0 -7px #fff1b8;
-  box-shadow: inset 0 -7px #fff1b8;
+  -webkit-box-shadow: inset 0 -10px #fff1b8;
+  box-shadow: inset 0 -10px #fff1b8;
 }
 .article-entry ul,
 .article-entry ol,
