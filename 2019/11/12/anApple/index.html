@@ -11,7 +11,7 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.0.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container">
@@ -91,7 +91,7 @@
 <li><p>sleep</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">delay</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> <span class="built_in">setTimeout</span>(resolve, delay))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 性能很差</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">delay</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> timer = <span class="built_in">Date</span>.now(); <span class="built_in">Date</span>.now() - timer &lt;= delay; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>subscriber mode</p>
+<li><p> subscriber mode</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pubSub = &#123;</span><br><span class="line">  sub: <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">  subscribe (key, fn) &#123;</span><br><span class="line">    <span class="built_in">this</span>.sub.set(key, fn)</span><br><span class="line">  &#125;,</span><br><span class="line">  publish (...args) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = args.shift()</span><br><span class="line">    <span class="keyword">const</span> fn = <span class="built_in">this</span>.sub.get(key)</span><br><span class="line">    <span class="keyword">if</span> (!fn) <span class="keyword">return</span></span><br><span class="line">    fn(args)</span><br><span class="line">  &#125;,</span><br><span class="line">  off (key) &#123;</span><br><span class="line">    <span class="built_in">this</span>.sub.delete(key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Set</p>

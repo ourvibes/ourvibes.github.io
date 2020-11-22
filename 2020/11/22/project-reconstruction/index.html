@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一次大型项目的重构 | Ourvibes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="icon" href="/icon/earth.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"><canvas style="z-index: -1; position: fixed; width: 100%; height: 50%; overflow: hidden;"></canvas></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap" class="animated fadeInDown">
+        <a href="/" id="logo">Leslie Chiang</a>
+      </h1>
+      <h2 id="slogan" class="animated fadeInUp">Forever youthful. Forever weeping.</h2>
+      
+    </div>
+    <div id="header-inner" class="inner animated fadeInDown">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-project-reconstruction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta animated fadeInUp">
+    <a href="/2020/11/22/project-reconstruction/" class="article-date">
+  <time datetime="2020-11-22T13:10:36.000Z" itemprop="datePublished">2020-11-22 21:10:36</time>
+</a>
+    
+  </div>
+  <div class="animated  fadeIn article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一次大型项目的重构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近的半年，我们公司前端组对公司产品进行了重构。旧的代码约80W行，启动项目缓慢，UI代码和业务逻辑大量耦合。Mixs的使用让人苦不堪言，基本没有现成的组件使用，没有文档，大量复杂的异步调用。这让前端开发变得异常难受。当然我们要看一个背景，公司的产品始于4，5年前，那时候Vue才刚刚火起来，公司也才处于起步阶段，公司开发人员少，任务多，时间赶，使得项目中存在大量的重复代码，日积月累，代码堆到了数十万的级别。终于，在今年我们前端组，设计组，文档组，测试组联合起来对项目进行了重构。首先我介绍一下技术栈：</p>
+<ul>
+<li>React</li>
+<li>Nest.js</li>
+<li>antD</li>
+<li>GraphQL</li>
+<li>Qiankun</li>
+<li>TypeScript</li>
+<li>apollo-server</li>
+<li>ahooks</li>
+<li>umi</li>
+</ul>
+<ol>
+<li><p>为什么使用React，而不是Vue？<br>大型项目更适合使用React，这是组内一致同意的意见。React与ts搭配起来，谁用都说好。</p>
+</li>
+<li><p>为什么要使用Nest呢？<br>公司的后端严格意义上来说，是提供云计算能力的。把大量的UI逻辑放在java端是不合适的。放在前端又会出现业务代码和UI代码耦合的情况。后端提供的接口又是原子性的，基本没有联表查询的能力，所以存在大量的异步查询调用。于是有了中间层，这样我们可以对UI想要的数据进行自由的组合。而又不会对java端的能力层造成大的影响。</p>
+</li>
+<li><p>为什么使用GraphQL？<br>目前来说，国内使用GraphQL的并不多。一是文档都是英文，对国人开发不够友好；二是对新技术普遍持怀疑态度，再加上前端的轮子很多，大家都见怪不怪了。我们公司为啥用？一是我们公司产品业务足够复杂；二是我们团队乐于探索新技术为了更好的开发体验；三是微软已经在github上使用了。当然我们在决定最终使用之前，是做了大量的测试调研的。</p>
+</li>
+<li><p>为什么使用Qiankun？<br>其实Qiankun也是新技术，阿里的微前端框架。当然你如果稍微懂点儿java，用过spring那套东西。你就会笑而不语，不就是多maven多模块项目嘛。对，其实技术思想就是这么抄来抄去。还有那个Nest.js，你会有一种写SpringBoot的错觉。</p>
+</li>
+<li><p>为啥使用TypeScript？<br>你能传什么值，我说了算；我能返回值，你也一目了然；开发阶段能快速暴露问题，编译报错。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project-reconstruction/" rel="tag">project-reconstruction</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/14/nestjs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">nest.js入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer" class="animated fadeIn">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Leslie Chiang. All Rights Reserved. Powered by Hexo.
+      jiangqizhi@aliyun.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+
+  
+<script src="/js/jquery.min.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/baidu-analysis.js"></script>
+
+
+
+<script src="/js/canvas.js"></script>
+
+
+  </div>
+</body>
+</html>
