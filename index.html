@@ -59,26 +59,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近的半年，我们公司前端组对公司产品进行了重构。旧的代码约80W行，启动项目缓慢，UI代码和业务逻辑大量耦合。Mixs的使用让人苦不堪言，基本没有现成的组件使用，没有文档，大量复杂的异步调用。这让前端开发变得异常难受。当然我们要看一个背景，公司的产品始于4，5年前，那时候Vue才刚刚火起来，公司也才处于起步阶段，公司开发人员少，任务多，时间赶，使得项目中存在大量的重复代码，日积月累，代码堆到了数十万的级别。终于，在今年我们前端组，设计组，文档组，测试组联合起来对项目进行了重构。首先我介绍一下技术栈：</p>
+        <p>最近的半年，我们公司前端组对公司产品进行了重构。旧的代码约80W行，启动项目缓慢，UI代码和业务逻辑大量耦合。mixins的使用让人苦不堪言，基本没有现成的组件使用，没有文档，大量复杂的异步调用。这让前端开发变得异常难受。当然我们要看一个背景，公司的产品始于4，5年前，那时候Vue才刚刚火起来，公司也才处于起步阶段，公司开发人员少，任务多，时间赶，使得项目中存在大量的重复代码，日积月累，代码堆到了数十万的级别。终于，在今年我们前端组，设计组，文档组，测试组联合起来对项目进行了重构。首先我介绍一下技术栈：</p>
 <ul>
-<li>React</li>
-<li>Nest.js</li>
-<li>antD</li>
-<li>GraphQL</li>
-<li>Qiankun</li>
-<li>TypeScript</li>
-<li>apollo-server</li>
-<li>ahooks</li>
-<li>umi</li>
+<li><a target="_blank" rel="noopener" href="https://react.docschina.org/">React</a></li>
+<li><a target="_blank" rel="noopener" href="https://nestjs.com/">Nest.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://ant.design/index-cn">antD</a></li>
+<li><a target="_blank" rel="noopener" href="https://graphql.cn/">GraphQL</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/umijs/qiankun">Qiankun</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tslang.cn/index.html">TypeScript</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.apollographql.com/docs/apollo-server/">apollo-server</a></li>
+<li><a target="_blank" rel="noopener" href="https://ahooks.js.org/">ahooks</a></li>
+<li><a target="_blank" rel="noopener" href="https://umijs.org/">umi</a></li>
+<li><a target="_blank" rel="noopener" href="https://single-spa.js.org/">single-spa</a></li>
 </ul>
 <ol>
-<li><p>为什么使用React，而不是Vue？<br>大型项目更适合使用React，这是组内一致同意的意见。React与ts搭配起来，谁用都说好。</p>
+<li><p>为什么使用React，而不是Vue？<br>react与ts搭配起来更好用。</p>
 </li>
 <li><p>为什么要使用Nest呢？<br>公司的后端严格意义上来说，是提供云计算能力的。把大量的UI逻辑放在java端是不合适的。放在前端又会出现业务代码和UI代码耦合的情况。后端提供的接口又是原子性的，基本没有联表查询的能力，所以存在大量的异步查询调用。于是有了中间层，这样我们可以对UI想要的数据进行自由的组合。而又不会对java端的能力层造成大的影响。</p>
 </li>
-<li><p>为什么使用GraphQL？<br>目前来说，国内使用GraphQL的并不多。一是文档都是英文，对国人开发不够友好；二是对新技术普遍持怀疑态度，再加上前端的轮子很多，大家都见怪不怪了。我们公司为啥用？一是我们公司产品业务足够复杂；二是我们团队乐于探索新技术为了更好的开发体验；三是微软已经在github上使用了。当然我们在决定最终使用之前，是做了大量的测试调研的。灵活性，扩展性，描述性是我们使用它的理由。</p>
+<li><p>为什么使用GraphQL？<br>目前来说，国内使用GraphQL的并不多。一是文档都是英文，对国人开发不够友好；二是对新技术普遍持怀疑态度，再加上前端的轮子很多，大家都见怪不怪了。我们公司为啥用？一是我们公司产品业务足够复杂；二是我们团队乐于探索新技术为了更好的开发体验；三是微软已经在github上使用了。当然我们在决定最终使用之前，是做了大量的测试调研的。灵活性，扩展性，可描述性是我们使用它的理由。</p>
 </li>
-<li><p>为什么使用Qiankun？<br>其实Qiankun也是新技术，阿里的微前端框架。当然你如果稍微懂点儿java，用过spring那套东西。你就会笑而不语，不就是多maven多模块项目嘛。对，其实技术思想就是这么抄来抄去。还有那个Nest.js，你会有一种写SpringBoot的错觉。为了解决什么问题？项目大了之后，文件繁多，不便于查找，编译启动慢。使用了微前端，便于模块化开发，模块化部署，公用部分的抽离扩展。</p>
+<li><p>为什么使用Qiankun？<br>其实Qiankun也是新技术，阿里的微前端框架。为了解决什么问题？项目大了之后，文件繁多，不便于查找，编译启动慢。使用了微前端，便于模块化开发，模块化部署，公用部分的抽离扩展。</p>
 </li>
 <li><p>为啥使用TypeScript？<br>你能传什么值，我说了算；我能返回值，你也一目了然；开发阶段能快速暴露问题，编译报错。</p>
 </li>
