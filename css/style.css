@@ -11042,20 +11042,13 @@ button::-moz-focus-inner {
   left: 0;
   margin-top: -19.776px;
 }
-#logo,
-#subtitle {
-  text-decoration: none;
-  color: #000;
-}
-#logo {
-  font-size: 32px;
-  line-height: 32px;
-  z-index: 9999;
-}
 #slogan {
   color: #000;
   margin-top: 1.2%;
-  font-size: 14px;
+  font-size: 30px;
+}
+#slogan a {
+  color: #262626;
 }
 #subtitle {
   font-size: 16px;
