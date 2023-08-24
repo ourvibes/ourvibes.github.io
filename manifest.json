@@ -1,0 +1,25 @@
+{
+    "name": "ourvibes",
+    "short_name": "ourvibes",
+    "start_url": "index.html",
+    "display": "ourvibes",
+    "background_color": "#2196f3",
+    "description": "Hexo,Ourvibes,vibes,github,githubio,git,blogs,Chiang,jiangqizhi,qzjiang",
+    "theme_color": "blue",
+    "icons": [
+      {
+        "src": "./assets/earth.ico",
+        "sizes": "64x64",
+        "type": "image/x-icon"
+      }
+    ],
+    "related_applications": [
+      {
+        "platform": "web"
+      },
+      {
+        "platform": "play",
+        "url": "https://play.google.com/store/apps/details?id=qzjiang"
+      }
+    ]
+  }
