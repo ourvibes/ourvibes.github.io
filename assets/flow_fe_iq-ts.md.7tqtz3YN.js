@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as s}from"./chunks/framework.LNmJnetQ.js";const _=JSON.parse('{"title":"Q&A - ts","description":"","frontmatter":{"title":"Q&A - ts"},"headers":[],"relativePath":"flow/fe/iq-ts.md","filePath":"flow/fe/iq-ts.md"}'),a={name:"flow/fe/iq-ts.md"};function o(r,c,i,n,f,l){return s(),e("div")}const d=t(a,[["render",o]]);export{_ as __pageData,d as default};

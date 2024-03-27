@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.LNmJnetQ.js";const _=JSON.parse('{"title":"Q&A - vue","description":"","frontmatter":{"title":"Q&A - vue"},"headers":[],"relativePath":"flow/fe/iq-vue.md","filePath":"flow/fe/iq-vue.md"}'),o={name:"flow/fe/iq-vue.md"};function r(s,c,i,n,f,l){return a(),t("div")}const d=e(o,[["render",r]]);export{_ as __pageData,d as default};
